@@ -1,0 +1,4 @@
+1- refined idea için basit bir extractor yaz, tartışmanın reasoninginden sonraki nihai fikir kısmını alsın sadece
+2- treedeki leaf node'lar için her refined idea için extractor çıktısını al, misc/generated_ideas.jsonl formatındaki gibi kaydet.
+3+ critique kodunu tamamla
+4- yalın gemini ile multi-agentic sistemin critique'larını kıyasla

@@ -4,6 +4,7 @@ from tree import Node, export_tree_to_json
 from config import settings
 from utils import read_file
 from collections import deque
+import argparse
 
 # initialize the agents
 first_code_path = "/home/furkan/projects/langchain-tutorial/llm-council/prompts/code.md"
@@ -58,6 +59,17 @@ def process_node(node: Node):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Conflict Driven Multi Agentic Idea Generation")
+
+    parser.add_argument("--idea", action="store_true", help="run in idea generation mode.")
+    parser.add_argument("--code", action="store_true", help="run in code optimisation mode.")
+
+    args = parser.parse_args()
+
+    if args.code:
+        settings.mode = "code"
+    elif args.idea:
+        settings.mode = "idea"
 
     # --- BFS Tree Construction ---
     code_path = debug_first_code_path if settings.debug else first_code_path
@@ -85,5 +97,7 @@ if __name__ == "__main__":
                 queue.append(current_node.right)
 
     print("Tree construction completed.")
+    print("Total requests: ", settings.requests)
 
     export_tree_to_json(root, settings.tree.json_file)
+    

@@ -25,6 +25,7 @@ class RefineAgent:
             response = "placeholder for refined code"
         else:
             response = self.model.invoke(prompt).content
+            settings.requests += 1
         
         return response
 

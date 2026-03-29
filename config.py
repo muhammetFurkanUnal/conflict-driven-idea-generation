@@ -17,14 +17,16 @@ class Settings(BaseSettings):
 	tree: Tree
 	thesis: Thesis
 	debug: bool
+	mode: str
+	requests: int
 
 	model_config = SettingsConfigDict(
-        env_file="./.env", 
+        env_file="/home/furkan/projects/langchain-tutorial/llm-council/.env", 
         env_nested_delimiter="."
     )
 
 settings = Settings()
-
+settings.requests = 0
 
 
 

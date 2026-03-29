@@ -81,6 +81,7 @@ class ThesisAgent:
             response = "placeholder for thesis arguments"
         else:
             response = self.model.invoke(prompt).content
+            settings.requests += 1
 
         output = f"\nSpeaker: Thesis\n{response}"
         
@@ -100,6 +101,7 @@ class ThesisAgent:
             response = "placeholder for anti-thesis arguments"
         else:
             response = self.model.invoke(prompt).content
+            settings.requests += 1
 
         output = f"\nSpeaker: Anti-Thesis\n{response}"
         
@@ -150,6 +152,7 @@ class ThesisAgent:
         }
 
         self.thesis_agent.invoke(initial_state)
+
 
         return self.full_conversation
     

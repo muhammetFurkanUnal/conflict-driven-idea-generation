@@ -18,4 +18,4 @@ Yanıtını şu teknik akışla sunmalısın:
 
 3. Karar ve Mühendislik Gerekçesi: Hangi yaklaşımın (veya hangi teknik bileşenin) projenin sağlığı için neden daha üstün olduğunu mühendislik argümanlarıyla açıkla.
 
-4. RAFİNE EDİLMİŞ KOD (The Master Code): Hem tezin yapısal zekasını hem de antitezin güvenilirliğini içeren; temiz, dökümante edilmiş ve optimize edilmiş mükemmel kod bloğunu yaz.
+4. RAFİNE EDİLMİŞ KOD (The Master Code): Hem tezin yapısal zekasını hem de antitezin güvenilirliğini içeren; temiz, dökümante edilmiş ve optimize edilmiş mükemmel kod bloğunu yaz. kodu yazarken **FINAL CODE** başlığının altına yaz. Kodun ardından başka birşey yazma, kodu bitir ve noktayı koy.

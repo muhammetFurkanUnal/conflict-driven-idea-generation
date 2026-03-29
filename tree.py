@@ -14,6 +14,27 @@ class Node:
 		self.right :Node = None
 		self.depth: int = depth
 
+def get_leaf_nodes(root):
+    if root is None:
+        return []
+    
+    # Check if the node is a leaf (all children are None)
+    if root.left is None and root.mid is None and root.right is None:
+        return [root]
+    
+    leaves = []
+    
+    # Recursively traverse each branch
+    if root.left:
+        leaves.extend(get_leaf_nodes(root.left))
+    if root.mid:
+        leaves.extend(get_leaf_nodes(root.mid))
+    if root.right:
+        leaves.extend(get_leaf_nodes(root.right))
+        
+    return leaves
+
+
 
 def export_tree_to_json(root, filepath="tree_output.json"):
     if not root:
@@ -58,3 +79,50 @@ def export_tree_to_json(root, filepath="tree_output.json"):
 
     with open(filepath, "w", encoding="utf-8") as file:
         json.dump(tree_export, file, indent=4, ensure_ascii=False)
+
+
+def import_tree_from_json(filepath):
+    with open(filepath, "r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    if not data:
+        return None
+
+    # Step 1: Create all node instances and store them in a registry
+    node_registry = {}
+    for node_id, content in data.items():
+        new_node = Node(
+            code=content.get("code", ""),
+            thesis=content.get("thesis", "")
+        )
+        new_node.id = node_id
+        node_registry[node_id] = new_node
+
+    # Step 2: Link nodes based on the ID references
+    root = None
+    for node_id, content in data.items():
+        current_node = node_registry[node_id]
+        
+        # Identify the root (usually node_0, but let's be safe)
+        if node_id == "node_0":
+            root = current_node
+
+        # Assign children using the registry
+        if content.get("left_id"):
+            current_node.left = node_registry[content["left_id"]]
+        if content.get("mid_id"):
+            current_node.mid = node_registry[content["mid_id"]]
+        if content.get("right_id"):
+            current_node.right = node_registry[content["right_id"]]
+
+    return root
+
+
+if __name__ == "__main__":
+    root = import_tree_from_json("/home/furkan/projects/langchain-tutorial/llm-council/out/debug-tree.json")
+    leaves = get_leaf_nodes(root)
+    print(leaves)
+
+
+
+    

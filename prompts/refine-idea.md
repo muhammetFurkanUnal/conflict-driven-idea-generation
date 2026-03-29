@@ -18,4 +18,4 @@ Yanıtını şu sistematik akışla sunmalısın:
 
 3. Karar ve Gerekçe: Mevcut veriler ışığında hangi mantıksal düzlemin daha ağır bastığını açıkla.
 
-4. RAFİNE EDİLMİŞ SENTEZ: Hem tezin vizyonunu hem de antitezin gerçekçiliğini içeren, çelişkilerden arındırılmış, "Mükemmel Fikir" formülasyonunu yaz.
+4. RAFİNE EDİLMİŞ SENTEZ: Hem tezin vizyonunu hem de antitezin gerçekçiliğini içeren, çelişkilerden arındırılmış, "Mükemmel Fikir" formülasyonunu yaz. Bu nihai fikri **FINAL IDEA** başlığının altına yaz. Son fikri yazdıktan sonra noktayı koy, daha fazla birşey söyleme.
